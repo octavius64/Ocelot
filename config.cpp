@@ -55,7 +55,7 @@ config::config() {
 
 void config::init() {
 	// Internal stuff
-	add("listen_port", 34000u);
+	add("listen_port", 2710u);
 	add("max_connections", 1024u);
 	add("max_middlemen", 20000u);
 	add("max_read_buffer", 4096u);
@@ -77,14 +77,14 @@ void config::init() {
 	// MySQL
 	add("mysql_db", "gazelle");
 	add("mysql_host", "localhost");
-	add("mysql_username", "");
-	add("mysql_password", "");
+	add("mysql_username", "gazelle");
+	add("mysql_password", "5QyDOYsAOIYvA1TgudAZGHVVL1eGTDes");
 
 	// Site communication
 	add("site_host", "127.0.0.1");
 	add("site_path", "");
-	add("site_password", "00000000000000000000000000000000");
-	add("report_password", "00000000000000000000000000000000");
+	add("site_password", "yd6gm1xn3GQxPCiKRp7OO1WlETfNIcPd");
+	add("report_password", "eGvjs5kOeaH9ZXkcLHQ8F4cHuBbq1bkl");
 
 	// Debugging
 	add("readonly", false);
