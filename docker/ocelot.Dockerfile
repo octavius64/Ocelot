@@ -20,3 +20,7 @@ RUN mkdir -p build \
     && cd build \
     && cmake .. \
     && make
+
+RUN chmod +x ./docker/docker-entrypoint.sh
+
+CMD ./docker/docker-entrypoint.sh
