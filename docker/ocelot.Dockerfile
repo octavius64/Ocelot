@@ -13,7 +13,9 @@ RUN apt-get update \
         libmysql++-dev \
         pkg-config
 
-COPY . /ocelot
+RUN mkdir /ocelot
+COPY *.cpp *.h CMakeLists.txt /ocelot
+COPY CMake /ocelot/CMake
 WORKDIR /ocelot
 
 RUN mkdir -p build \
@@ -21,6 +23,6 @@ RUN mkdir -p build \
     && cmake .. \
     && make
 
-RUN chmod +x ./docker/docker-entrypoint.sh
-
-CMD ./docker/docker-entrypoint.sh
+COPY docker/docker-entrypoint.sh .
+RUN chmod +x ./docker-entrypoint.sh
+CMD ./docker-entrypoint.sh
