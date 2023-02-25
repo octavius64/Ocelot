@@ -15,7 +15,7 @@ echo site_password = $GAZELLE_SITE_PASSWORD >> ocelot.cnf
 echo report_password = $GAZELLE_REPORT_PASSWORD >> ocelot.cnf
 echo listen_port = $OCELOT_LISTEN_PORT >> ocelot.cnf
 
-/db_initializer_pipe/wait_db_ready.sh
+bash /home/wait_db_ready.sh
 
 echo Starting ocelot...
 exec ./ocelot -c ocelot.cnf
