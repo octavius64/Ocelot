@@ -13,16 +13,13 @@ RUN apt-get update \
         libmysql++-dev \
         pkg-config
 
-RUN mkdir /ocelot
-COPY *.cpp *.h CMakeLists.txt /ocelot
-COPY CMake /ocelot/CMake
-WORKDIR /ocelot
+# This should be a readonly mount of the src/ directory
+VOLUME /ocelot_src
 
-RUN mkdir -p build \
-    && cd build \
-    && cmake .. \
-    && make
+# This should be a rw mount where the build will take place
+VOLUME /ocelot_build
+WORKDIR /ocelot_build
 
-COPY docker/docker-entrypoint.sh .
-RUN chmod +x ./docker-entrypoint.sh
-CMD ./docker-entrypoint.sh
+COPY docker/docker-entrypoint.sh /home/
+RUN chmod +x /home/docker-entrypoint.sh
+CMD /home/docker-entrypoint.sh

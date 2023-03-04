@@ -1,8 +1,6 @@
 #!/bin/bash
 set -eo pipefail
 
-cd build
-
 echo Generating ocelot.cnf...
 
 echo > ocelot.cnf
@@ -14,6 +12,10 @@ echo site_host = $GAZELLE_HOST >> ocelot.cnf
 echo site_password = $GAZELLE_SITE_PASSWORD >> ocelot.cnf
 echo report_password = $GAZELLE_REPORT_PASSWORD >> ocelot.cnf
 echo listen_port = $OCELOT_LISTEN_PORT >> ocelot.cnf
+
+echo Building Ocelot...
+cmake /ocelot_src
+make
 
 bash /home/wait_db_ready.sh
 
