@@ -16,8 +16,15 @@ echo listen_port = $OCELOT_LISTEN_PORT >> ocelot.cnf
 echo Building Ocelot...
 cmake /ocelot_src
 make
+# Create a copy so that we can run builds while Ocelot is running
+cp ocelot ocelot.live
 
 bash /home/wait_db_ready.sh
 
 echo Starting ocelot...
-exec ./ocelot -c ocelot.cnf
+./ocelot.live -c ocelot.cnf
+
+# Do not exit PID 1 if ocelot exits.
+# We want to be able to manually launch ocelot again and redirect it's output
+# to the output of PID 1 for debugging purposes
+while true; do sleep 3600; done
