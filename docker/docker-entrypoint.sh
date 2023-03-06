@@ -28,5 +28,6 @@ exec ./ocelot.live -c ocelot.cnf
 # Uncomment the following 2 lines and comment out the above exec line
 # ============================================
 
-# while true; do sleep 3600; done
 # ./ocelot.live -c ocelot.cnf
+# while true; do sleep 3600; done
+
