@@ -22,9 +22,11 @@ cp ocelot ocelot.live
 bash /home/wait_db_ready.sh
 
 echo Starting ocelot...
-./ocelot.live -c ocelot.cnf
+exec ./ocelot.live -c ocelot.cnf
 
-# Do not exit PID 1 if ocelot exits.
-# We want to be able to manually launch ocelot again and redirect it's output
-# to the output of PID 1 for debugging purposes
-while true; do sleep 3600; done
+# NOTE IF YOU'RE ACTIVELY DEVELOPING IN DOCKER:
+# Uncomment the following 2 lines and comment out the above exec line
+# ============================================
+
+# while true; do sleep 3600; done
+# ./ocelot.live -c ocelot.cnf

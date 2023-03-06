@@ -22,4 +22,4 @@ WORKDIR /ocelot_build
 
 COPY docker/docker-entrypoint.sh /home/
 RUN chmod +x /home/docker-entrypoint.sh
-CMD /home/docker-entrypoint.sh
+CMD ["/home/docker-entrypoint.sh"]
