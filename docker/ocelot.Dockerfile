@@ -11,7 +11,8 @@ RUN apt-get update; \
         libev-dev \
         libjemalloc-dev \
         libmysql++-dev \
-        pkg-config
+        pkg-config; \
+    true
 
 # This should be a readonly mount of the src/ directory
 VOLUME /ocelot_src
