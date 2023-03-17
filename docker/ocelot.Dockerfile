@@ -1,18 +1,4 @@
-FROM ubuntu:22.04
-
-RUN apt-get update; \
-    apt-get install -y \
-        build-essential \
-        cmake \
-        curl \
-        default-libmysqlclient-dev \
-        libboost-iostreams-dev \
-        libboost-system-dev \
-        libev-dev \
-        libjemalloc-dev \
-        libmysql++-dev \
-        pkg-config; \
-    true
+FROM octavius64/ocelot_base:v1
 
 # This should be a readonly mount of the src/ directory
 VOLUME /ocelot_src
